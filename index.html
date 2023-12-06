@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Mental Health Test</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        h4 {
+            color: #343a40;
+        }
+
+        .options {
+            margin-top: 20px;
+        }
+
+        .custom-control-label {
+            color: #495057;
+        }
+
+        .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .custom-control-input:focus ~ .custom-control-label::before {
+            box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-container button {
+            width: 45%;
+        }
+
+        #resultContainer {
+            margin-top: 20px;
+            background-color: #d4edda;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #resultText {
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 class="mb-4">Mental Health Test</h1>
+
+        <div id="questionContainer">
+            <div class="question" id="question1" style="display:block;">
+                <h4>1. Do you often feel overwhelmed or stressed?</h4>
+                <div class="options">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio1" name="answer1" class="custom-control-input" value="0">
+                        <label class="custom-control-label" for="customRadio1">Never</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="answer1" class="custom-control-input" value="1">
+                        <label class="custom-control-label" for="customRadio2">Rarely</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio3" name="answer1" class="custom-control-input" value="2">
+                        <label class="custom-control-label" for="customRadio3">Sometimes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio4" name="answer1" class="custom-control-input" value="3">
+                        <label class="custom-control-label" for="customRadio4">Often</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio5" name="answer1" class="custom-control-input" value="4">
+                        <label class="custom-control-label" for="customRadio5">Always</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question" id="question2" style="display:none;">
+                <h4>2. Do you have trouble sleeping at night?</h4>
+                <div class="options">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio6" name="answer2" class="custom-control-input" value="0">
+                        <label class="custom-control-label" for="customRadio6">Never</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio7" name="answer2" class="custom-control-input" value="1">
+                        <label class="custom-control-label" for="customRadio7">Rarely</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio8" name="answer2" class="custom-control-input" value="2">
+                        <label class="custom-control-label" for="customRadio8">Sometimes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio9" name="answer2" class="custom-control-input" value="3">
+                        <label class="custom-control-label" for="customRadio9">Often</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio10" name="answer2" class="custom-control-input" value="4">
+                        <label class="custom-control-label" for="customRadio10">Always</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question" id="question3" style="display:none;">
+                <h4>3. Are you finding it difficult to concentrate on tasks?</h4>
+                <div class="options">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio11" name="answer3" class="custom-control-input" value="0">
+                        <label class="custom-control-label" for="customRadio11">Never</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio12" name="answer3" class="custom-control-input" value="1">
+                        <label class="custom-control-label" for="customRadio12">Rarely</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio13" name="answer3" class="custom-control-input" value="2">
+                        <label class="custom-control-label" for="customRadio13">Sometimes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio14" name="answer3" class="custom-control-input" value="3">
+                        <label class="custom-control-label" for="customRadio14">Often</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio15" name="answer3" class="custom-control-input" value="4">
+                        <label class="custom-control-label" for="customRadio15">Always</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question" id="question4" style="display:none;">
+                <h4>4. Do you feel a lack of interest in activities you used to enjoy?</h4>
+                <div class="options">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio16" name="answer4" class="custom-control-input" value="0">
+                        <label class="custom-control-label" for="customRadio16">Never</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio17" name="answer4" class="custom-control-input" value="1">
+                        <label class="custom-control-label" for="customRadio17">Rarely</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio18" name="answer4" class="custom-control-input" value="2">
+                        <label class="custom-control-label" for="customRadio18">Sometimes</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio19" name="answer4" class="custom-control-input" value="3">
+                        <label class="custom-control-label" for="customRadio19">Often</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio20" name="answer4" class="custom-control-input" value="4">
+                        <label class="custom-control-label" for="customRadio20">Always</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button type="button" class="btn btn-secondary" onclick="previousQuestion()">Previous</button>
+                <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+            </div>
+
+            <div id="resultContainer" style="display:none;">
+                <h2 class="mt-4">Your Results</h2>
+                <p id="resultText"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 4; // Update this with the total number of questions
+        let totalScore = 0;
+
+        function nextQuestion() {
+            const currentQuestionDiv = document.getElementById(`question${currentQuestion}`);
+            totalScore += getSelectedValue(`answer${currentQuestion}`);
+            currentQuestion++;
+
+            if (currentQuestion <= totalQuestions) {
+                currentQuestionDiv.style.display = 'none';
+                const nextQuestionDiv = document.getElementById(`question${currentQuestion}`);
+                nextQuestionDiv.style.display = 'block';
+            } else {
+                displayResult();
+            }
+        }
+
+        function previousQuestion() {
+            const currentQuestionDiv = document.getElementById(`question${currentQuestion}`);
+            currentQuestion--;
+
+            if (currentQuestion >= 1) {
+                currentQuestionDiv.style.display = 'none';
+                const previousQuestionDiv = document.getElementById(`question${currentQuestion}`);
+                previousQuestionDiv.style.display = 'block';
+            }
+
+            // Reset result display if going back to questions
+            document.getElementById("resultContainer").style.display = "none";
+        }
+
+        function getSelectedValue(name) {
+            const selectedInput = document.querySelector(`input[name="${name}"]:checked`);
+            return selectedInput ? parseInt(selectedInput.value) : 0;
+        }
+
+        function calculateScore() {
+            totalScore += getSelectedValue(`answer${currentQuestion}`);
+            displayResult();
+        }
+
+        function displayResult() {
+            const resultContainer = document.getElementById("resultContainer");
+            const resultText = document.getElementById("resultText");
+
+            let resultMessage = "";
+
+            if (totalScore < 5) {
+                resultMessage = "You have a low risk of mental health issues.";
+            } else if (totalScore < 10) {
+                resultMessage = "You have a moderate risk of mental health issues. Consider seeking support.";
+            } else {
+                resultMessage = "You have a high risk of mental health issues. Please consult with a mental health professional.";
+            }
+
+            resultText.textContent = resultMessage + ` Your total score is ${totalScore}.`;
+            resultContainer.style.display = "block";
+        }
+    </script>
+</body>
+</html>
