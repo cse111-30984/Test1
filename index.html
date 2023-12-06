@@ -1,81 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Mental Health Test</title>
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        #container {
-            text-align: center;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .question {
-            display: none;
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            color: #007bff;
-        }
-
-        h4 {
-            color: #343a40;
-        }
-
-        .options {
-            margin-top: 20px;
-        }
-
-        .custom-control-label {
-            color: #495057;
-        }
-
-        .custom-control-input:checked ~ .custom-control-label::before {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-
-        .custom-control-input:focus ~ .custom-control-label::before {
-            box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        }
-
-        .btn-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .btn-container button {
-            width: 45%;
-        }
-
-        #resultContainer {
-            margin-top: 20px;
-            background-color: #d4edda;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        #resultText {
-            color: #155724;
-        }
-    </style>
 </head>
 <body>
     <div id="container">
@@ -201,66 +131,67 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script>
-        let currentQuestion = 1;
-        const totalQuestions = 4; // Update this with the total number of questions
-        let totalScore = 0;
+    <script src="script.js"></script>
+    
+    
+    
+    
 
-        function nextQuestion() {
-            const currentQuestionDiv = document.getElementById(`question${currentQuestion}`);
-            totalScore += getSelectedValue(`answer${currentQuestion}`);
-            currentQuestion++;
+    
+    
+    
+    
 
-            if (currentQuestion <= totalQuestions) {
-                currentQuestionDiv.style.display = 'none';
-                const nextQuestionDiv = document.getElementById(`question${currentQuestion}`);
-                nextQuestionDiv.style.display = 'block';
-            } else {
-                displayResult();
-            }
-        }
+    
+    
+    
+    
+    
+    
+    
+    
 
-        function previousQuestion() {
-            const currentQuestionDiv = document.getElementById(`question${currentQuestion}`);
-            currentQuestion--;
+    
+    
+    
 
-            if (currentQuestion >= 1) {
-                currentQuestionDiv.style.display = 'none';
-                const previousQuestionDiv = document.getElementById(`question${currentQuestion}`);
-                previousQuestionDiv.style.display = 'block';
-            }
+    
+    
+    
+    
+    
 
-            // Reset result display if going back to questions
-            document.getElementById("resultContainer").style.display = "none";
-        }
+    
+    
+    
 
-        function getSelectedValue(name) {
-            const selectedInput = document.querySelector(`input[name="${name}"]:checked`);
-            return selectedInput ? parseInt(selectedInput.value) : 0;
-        }
+    
+    
+    
+    
 
-        function calculateScore() {
-            totalScore += getSelectedValue(`answer${currentQuestion}`);
-            displayResult();
-        }
+    
+    
+    
+    
 
-        function displayResult() {
-            const resultContainer = document.getElementById("resultContainer");
-            const resultText = document.getElementById("resultText");
+    
+    
+    
 
-            let resultMessage = "";
+    
 
-            if (totalScore < 5) {
-                resultMessage = "You have a low risk of mental health issues.";
-            } else if (totalScore < 10) {
-                resultMessage = "You have a moderate risk of mental health issues. Consider seeking support.";
-            } else {
-                resultMessage = "You have a high risk of mental health issues. Please consult with a mental health professional.";
-            }
+    
+    
+    
+    
+    
+    
+    
 
-            resultText.textContent = resultMessage + ` Your total score is ${totalScore}.`;
-            resultContainer.style.display = "block";
-        }
-    </script>
+    
+    
+    
+    
 </body>
 </html>
